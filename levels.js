@@ -13,9 +13,7 @@ module.exports = (client) => {
 const getNeededXP = level => level * level * 100
 
 const addXP = async (guildId, userId, xpToAdd, message) => {
-  await mongo().then(async mongoose => {
-    try {
-      const result = await profileSchema.findOneAndUpdate({
+  const result = await profileSchema.findOneAndUpdate({
         guildId,
         userId
       },{
@@ -47,10 +45,4 @@ const addXP = async (guildId, userId, xpToAdd, message) => {
           }
         )
       }
-      
-    } catch (e) {}
-    finally {
-      mongoose.connection.close()
-    }
-  })
-}
+  }

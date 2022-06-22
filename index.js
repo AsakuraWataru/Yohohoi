@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose')
 const levels = require('./levels')
-
+const mongo = require('./mongo')
 app.listen(3000, () => {
   console.log("Zero ready");
 })
@@ -27,7 +27,7 @@ for(const file of commandFiles) {
 client.on("ready", async () => {
   console.log("Yohohoi");
   client.user.setActivity("mẹ bạn");
-  
+  mongo()
   levels(client)
 });
 
