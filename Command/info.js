@@ -11,11 +11,6 @@ module.exports = {
     const user = message.mentions.users.first() || message.member.user
     const member = guild.members.cache.get(user.id)
     
-    //const result = await profileSchema.findOne({
-      //guildId,
-      //userId
-    //})
-    
     const { level } = result
 
     const embed = new MessageEmbed()
@@ -37,10 +32,7 @@ module.exports = {
           name: 'Ngày tạo acc',
           value: new Date(user.createdTimestamp).toLocaleDateString(),
         },
-        //{
-          //name: 'Level',
-          //value: level
-        //},
+
       )
 
     channel.send({embeds: [embed]})
