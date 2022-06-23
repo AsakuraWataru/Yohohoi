@@ -1,19 +1,15 @@
-const { MessageEmbed } = require('discord.js');
-const mongo = require('../mongo')
-const profileSchema = require('../Schema/profile_schema.js')
-
 module.exports = {
   name: "info",
   aliases:['whois','who'],
   description: 'Moi thông tin ai đó :>',
-  async execute(message, args){
+  execute(message, args, client, Discord){
     const { guild, channel } = message
     const user = message.mentions.users.first() || message.member.user
     const member = guild.members.cache.get(user.id)
     
     const { level } = result
 
-    const embed = new MessageEmbed()
+    const embed = new Discord.MessageEmbed()
       .setAuthor(`Thông tin về ${user.username}`, user.displayAvatarURL())
       .addFields(
         {

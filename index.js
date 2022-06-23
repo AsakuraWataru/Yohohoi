@@ -15,13 +15,16 @@ const Discord = require("discord.js");
 const client = new Discord.Client({intents: ["GUILDS", "GUILD_MESSAGES","GUILD_MEMBERS","GUILD_VOICE_STATES"]});
 client.options.http.api = "https://discord.com/api/"
 const fs = require("fs");
-const PREFIX = '-';
+
 
 client.commands = new Discord.Collection();
 client.envent = new Discord.Collection();
 
 ['command_handler', 'event_handler'].forEach(handler => {
   require(`./Handlers/${handler}`)(client, Discord)
+})
+client.on('ready', () => {
+  client.user.setActivity("mẹ bạn")
 })
 
 
