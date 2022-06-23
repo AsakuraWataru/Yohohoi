@@ -23,10 +23,6 @@ client.envent = new Discord.Collection();
 ['command_handler', 'event_handler'].forEach(handler => {
   require(`./Handlers/${handler}`)(client, Discord)
 })
-client.on('ready', () => {
-  client.user.setActivity("mẹ bạn")
-})
-
 
 client.login(process.env.TOKEN);
 

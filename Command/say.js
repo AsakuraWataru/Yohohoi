@@ -1,7 +1,7 @@
 module.exports ={
   name:'say',
   description:'JUST SAY',
-  execute(message, args){
+  execute(client, message, args){
     let text = args.join(' ');
 		message.delete();
 		message.channel.send(text);

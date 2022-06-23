@@ -6,7 +6,7 @@ module.exports = (client, Discord) => {
     for(const file of event_file){
       const event = require(`../Events/${dirs}/${file}`)
       const event_name = file.split('.')[0];
-      client.on(event_name, event.bind(null,client,Discord));
+      client.on(event_name, event.bind(null,Discord, client));
     }
 
   }
