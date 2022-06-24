@@ -14,5 +14,5 @@ module.exports = (client, Discord) => {
       continue;
     }
   }
-  console.log('All green')
+  console.log('Commands all green')
 }

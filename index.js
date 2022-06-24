@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const levels = require('./levels')
 const mongo = require('./mongo')
 app.listen(3000, () => {
-  console.log("Zero ready");
+  console.log("System all green");
 })
 
 app.get("/", (req,res) => {
