@@ -10,23 +10,25 @@ module.exports = {
     
     const embed = new Discord.MessageEmbed()
       .setAuthor(`Thông tin về ${user.username}`, user.displayAvatarURL())
+      .setDescription(`${message.author}`)
+      .setThumbnail(`${user.displayAvatarURL()}`)
       .addFields(
+        {
+          name: 'Joined',
+          value: new Date(member.joinedTimestamp).toLocaleDateString(),
+          inline: true
+        },
+        
+        {
+          name: 'Registered',
+          value: new Date(user.createdTimestamp).toLocaleDateString(),
+          inline: true
+        },
         {
           name: 'Tag',
           value: user.tag,
         },
-        {
-          name: 'Biệt danh',
-          value: member.nickname || 'Nope',
-        },
-        {
-          name: 'Ngày tham gia server',
-          value: new Date(member.joinedTimestamp).toLocaleDateString(),
-        },
-        {
-          name: 'Ngày tạo acc',
-          value: new Date(user.createdTimestamp).toLocaleDateString(),
-        },
+        
         {
           name: 'Level',
           value: `${profile.level}`
