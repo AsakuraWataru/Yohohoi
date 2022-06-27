@@ -7,6 +7,9 @@ module.exports = {
     const { guild, channel } = message
     const user = message.mentions.users.first() || message.member.user
     const member = guild.members.cache.get(user.id)
+    const memRole = member.roles.cache
+    .filter((role) => role.id != message.guild.id)
+    .map((role) => role.toString())
     
     const embed = new Discord.MessageEmbed()
       .setAuthor(`Thông tin về ${user.username}`, user.displayAvatarURL())
@@ -14,14 +17,14 @@ module.exports = {
       .setThumbnail(`${user.displayAvatarURL()}`)
       .addFields(
         {
-          name: 'Joined',
-          value: new Date(member.joinedTimestamp).toLocaleDateString(),
+          name: 'Joined At',
+          value: `${new Date(member.joinedTimestamp).toLocaleString('en-US', {timeZone: 'Asia/Ho_Chi_Minh', weekday: 'long', month: 'short', day: 'numeric', year:'numeric', hour:'numeric', minute:'numeric'})}`,
           inline: true
         },
         
         {
-          name: 'Registered',
-          value: new Date(user.createdTimestamp).toLocaleDateString(),
+          name: 'Created Account At',
+          value: `${new Date(user.createdTimestamp).toLocaleString('en-US', {timeZone: 'Asia/Ho_Chi_Minh', weekday: 'long', month: 'short', day: 'numeric', year:'numeric', hour:'numeric', minute:'numeric'})}`,
           inline: true
         },
         {
@@ -32,9 +35,14 @@ module.exports = {
         {
           name: 'Level',
           value: `${profile.level}`
+        },
+        {
+          name:'Role',
+          value: `${memRole}`
         }
 
       )
+      .setFooter(`User Id:${message.author.id}`)
 
     channel.send({embeds: [embed]})
   },

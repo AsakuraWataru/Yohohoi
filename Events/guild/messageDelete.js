@@ -4,8 +4,10 @@ module.exports = (Discord, client, message) => {
 
   const log = new Discord.MessageEmbed()
     .setColor('RED')
-    .setAuthor(`${message.member.user.tag}`)
+    .setAuthor(`${message.member.user.tag}`, `${message.member.displayAvatarURL()}`)
+    .setThumbnail(`${message.member.displayAvatarURL({dynamic: true})}`)
     .setDescription(`**Message send by ${message.author} deleted in ${message.channel}** \r\n ${message.content}`)
+    .setFooter(`User Id: ${message.author.id} at Channel Id: ${message.channel.id}`)
     .setTimestamp()
   
   logChannel.send({embeds: [log]})

@@ -6,8 +6,9 @@ module.exports = (Discord, client, oldMsg, newMsg) => {
 
   const log = new Discord.MessageEmbed()
     .setColor('YELLOW')
-    .setAuthor(`${newMsg.member.user.tag}`)
-    .setDescription(`**Message edited in ${newMsg.channel}**`)
+    .setAuthor(`${newMsg.member.user.tag}`, `${newMsg.member.displayAvatarURL()}`)
+    .setThumbnail(`${newMsg.member.displayAvatarURL({dynamic: true})}`)
+    .setDescription(`**Message edited in ${newMsg.channel}**, wanna jump to it? [click here](${newMsg.url})`)
     .addFields(
       {
         name: 'Before',
@@ -18,6 +19,7 @@ module.exports = (Discord, client, oldMsg, newMsg) => {
         value: `${newMsg}`
       }
     )
+    .setFooter(`User Id: ${newMsg.author.id} at Channel Id: ${newMsg.channel.id}`)
     .setTimestamp()
   
   logChannel.send({embeds: [log]})

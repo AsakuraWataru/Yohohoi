@@ -1,8 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose')
-const levels = require('./levels')
-const mongo = require('./mongo')
+
 app.listen(3000, () => {
   console.log("System all green");
 })
@@ -32,3 +31,4 @@ mongoose.connect(process.env.SRV, {
 }).then(() => [
   console.log('United with MongoDB')
 ]);
+
