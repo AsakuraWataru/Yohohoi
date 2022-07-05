@@ -13,7 +13,7 @@ module.exports = {
     
     const embed = new Discord.MessageEmbed()
       .setAuthor(`Thông tin về ${user.username}`, user.displayAvatarURL())
-      .setDescription(`${message.author}`)
+      .setDescription(`${member}`)
       .setThumbnail(`${user.displayAvatarURL()}`)
       .addFields(
         {
