@@ -23,6 +23,7 @@
     "node-schedule": "^2.1.0",
     "npm": "^8.6.0",
     "opusscript": "^0.0.8",
+    "saucenao.js": "^1.0.5",
     "yt-search": "^2.10.3",
     "ytdl-core": "^4.11.0",
     "ytsearcher": "^1.2.4"

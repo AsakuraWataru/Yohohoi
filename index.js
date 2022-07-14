@@ -31,4 +31,3 @@ mongoose.connect(process.env.SRV, {
 }).then(() => [
   console.log('United with MongoDB')
 ]);
-

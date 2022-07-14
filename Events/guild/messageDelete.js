@@ -24,7 +24,7 @@ module.exports = (Discord, client, message) => {
       .setAuthor(`${message.member.user.tag}`)
       .setDescription(`**Image send by ${message.author} deleted in ${message.channel}**`)
       .setTimestamp()
-      .setImage(att.url)
+      .setImage(`${att.url}`)
     logChannel.send({embeds: [logImage]})
 
     }
