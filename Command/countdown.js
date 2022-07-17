@@ -7,7 +7,7 @@ module.exports = {
       time = parseInt(args[0]) * 1000
     }else if(args[1] === 'minute'){
       time = parseInt(args[0]) * 1000 * 60
-    }else if(args[0] === 'hour'){
+    }else if(args[1] === 'hour'){
       time = parseInt(args[0]) * 1000 * 60 * 60
     }
 
