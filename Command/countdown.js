@@ -18,6 +18,7 @@ module.exports = {
       message.channel.send(`${message.author} hoàn tất đếm ngược`)
     }
     setTimeout(aa, time)
+    message.channel.send('Bắt đầu đếm ngược')
        
   },
 }

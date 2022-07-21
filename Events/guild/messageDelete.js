@@ -1,6 +1,7 @@
 module.exports = (Discord, client, message) => {
   const logChannelId = '989439573702639676'
   const logChannel = client.channels.cache.get(logChannelId);
+  if(message.author.bot) return;
 
   const log = new Discord.MessageEmbed()
     .setColor('RED')

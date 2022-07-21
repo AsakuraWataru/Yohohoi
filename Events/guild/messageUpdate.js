@@ -2,7 +2,8 @@ module.exports = (Discord, client, oldMsg, newMsg) => {
   const logChannelId = '989439573702639676'
   const logChannel = client.channels.cache.get(logChannelId);
 
-  if (!oldMsg || newMsg.author.bot) { return };
+  if(!oldMsg || newMsg.author.bot) return;
+  if(oldMsg === newMsg) return;
 
   const log = new Discord.MessageEmbed()
     .setColor('YELLOW')
